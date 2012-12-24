@@ -1,0 +1,41 @@
+{
+  "name": "K-Tab",
+  "description": "Adds choices to open Kentico CMS Desk or Site Manager in tab's context menu.",
+  "version": "1",
+  "manifest_version": 2,
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": ["ktab.js"]
+  },
+  "content_scripts": [
+      {
+          "matches": ["http://*/*", "https://*/*"],
+          "js": ["inject.js"]
+      }
+  ]
+// New way of binding keys. Should be available in Chrome 25
+// http://developer.chrome.com/trunk/apps/commands.html
+//  "commands": {
+//      "toggle-feature-foo": {
+//          "suggested_key": {
+//            "default": "Ctrl+Shift+Y",
+//              "mac": "Command+Shift+Y"
+//          },
+//          "description": "Toggle feature foo"
+//      },
+//      "_execute_browser_action": {
+//          "suggested_key": {
+//              "windows": "Ctrl+Shift+Y",
+//              "mac": "Command+Shift+Y",
+//              "chromeos": "Ctrl+Shift+U",
+//              "linux": "Ctrl+Shift+J"
+//          }
+//      }
+//  }
+
+}

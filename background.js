@@ -1,6 +1,4 @@
 chrome.commands.onCommand.addListener(function(command) {
-    // TODO verify that it's a Kentico site.
-    
     chrome.tabs.getSelected(null, function(tab) {
         openTab(command, tab)
     });
@@ -13,9 +11,9 @@ var getHostname = function(href) {
     return l.host; // Host returns hostname and port if there is one.
 };
 
-function openTab(pCommand, pTab) {
-    var domain = getHostname(pTab.url.toString());
-    url = "http://" + domain + "/" + pCommand
-    
-    chrome.tabs.create({url: url });
+function openTab(command, tab) {
+    var domain = getHostname(tab.url.toString());
+
+    url = "http://" + domain + "/" + command
+    chrome.tabs.create({url: url, index: tab.index+1 });
 }

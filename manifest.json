@@ -1,24 +1,21 @@
 {
   "name": "K-Tab",
   "description": "Creates keyboard shortcuts to open  CMS Desk and CMS Site Manager for Kentico CMS",
-  "version": "2",
-  "manifest_version": 2,
+  "version": "3",
+  "manifest_version": 3,
   "permissions": [
-    "contextMenus",
-    "tabs",
-    "http://*/*",
-    "https://*/*"
+    "tabs"
   ],
   "background": {
     "scripts": ["background.js"]
   },
   "commands": {
       "cmsdesk": {
-          "suggested_key": { "default": "Ctrl+9" },
+          "suggested_key": { "default": "Alt+1" },
           "description": "Open CMS Desk"
       },
       "cmssitemanager": {
-          "suggested_key": { "default": "Ctrl+0" },
+          "suggested_key": { "default": "Alt+2" },
           "description": "Open CMS Site Manager"
       }
   }

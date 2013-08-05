@@ -2,7 +2,7 @@
   "name": "K-Tab",
   "description": "Creates keyboard shortcuts to open  CMS Desk and CMS Site Manager for Kentico CMS",
   "version": "3",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "permissions": [
     "tabs"
   ],

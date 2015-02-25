@@ -4,26 +4,26 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('node_modules/grunt/package.json'),
         // 1. Uglify
         uglify: {
-            test: {
+            dev: {
                 options: {
                     sourceMap: true,
                     sourceMapIncludeSources: true,
-                    sourceMapName: 'test/src/background.js'
+                    sourceMapName: 'dev/src/background.js'
                 },
                 src: 'src/*.js',
-                dest: 'test/background.js'
+                dest: 'dev/background.js'
             }
         },
         // Copy manifest with background.js
         copy: {
-            test: {
+            dev: {
                 files: [
-                    {src: 'src/manifest.json', dest: 'test/manifest.json', filter: 'isFile'}
+                    {src: 'src/manifest.json', dest: 'dev/manifest.json', filter: 'isFile'}
                 ]
             },
             prod: {
                 files: [
-                    {src: ['test/manifest.json', 'background.js'], dest: ['prod/manifest.json', 'prod/background.js'], filter: 'isFile'}
+                    {src: ['dev/manifest.json', 'background.js'], dest: ['prod/manifest.json', 'prod/background.js'], filter: 'isFile'}
                 ]
             }
         },
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                     archive: 'k-tab-prod.zip'
                 },
                 files: [
-                    {src: ['test/*'],  filter: 'isFile', flatten: true}, // includes files in path
+                    {src: ['dev/*'],  filter: 'isFile', flatten: true}, // includes files in path
                 ]
             }
         }
@@ -46,6 +46,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-compress');
 
     // Default task(s).
-    grunt.registerTask('test',   ['uglify', 'copy']);
+    grunt.registerTask('dev',   ['uglify', 'copy']);
     grunt.registerTask('prod', ['compress']);
 };

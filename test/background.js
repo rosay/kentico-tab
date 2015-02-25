@@ -1,2 +1,0 @@
-function getHostname(a){var b=document.createElement("a");return b.href=a,b.host}function openTab(a,b){var c=getHostname(b.url.toString());url="http://"+c+"/"+a,chrome.tabs.create({url:url,index:b.index+1})}chrome.commands.onCommand.addListener(function(a){chrome.tabs.getSelected(null,function(b){openTab(a,b)})});
-//# sourceMappingURL=src/background.js
